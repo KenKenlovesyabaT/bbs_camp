@@ -5,6 +5,18 @@
   <title>Document</title>
 </head>
 <body>
-
+  <form>
+    <p>名前：<input type="text" name="user_name"></p>
+    <p>本文：<input type="text" name="body"></p>
+    <input type="submit" value="POST"></input>
+  </form>
+  <% @contents.each do |content| %>
+    <div>
+      <div>
+        <p><%= content.name %></p>
+        <p><%= content.body %></p>
+      </div>
+    </div>
+  <% end %>
 </body>
 </html>
