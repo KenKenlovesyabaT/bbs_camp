@@ -3,7 +3,7 @@ Bundler.require
 require 'sinatra/reloader' if development?
 require 'open-uri'
 require 'sinatra/json'
-require './models/contributions.rb'
+require './models/contribution.rb'
 
 before do
 
