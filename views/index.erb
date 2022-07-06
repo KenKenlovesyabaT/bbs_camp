@@ -15,6 +15,10 @@
       <div>
         <p><%= content.name %></p>
         <p><%= content.body %></p>
+        <p><%= content.good %></p>
+        <form action="/good/<%= content.id %>" method="post">
+          <input type="submit" value="LIKE">
+        </form>
         <form action="/delete/<%= content.id %>" method="post">
           <input type="submit" value="DELETE">
         </form>
