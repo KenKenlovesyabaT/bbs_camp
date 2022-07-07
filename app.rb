@@ -11,17 +11,18 @@ before do
 end
 
 get '/' do
-    @contents = Contribution.all.order('id desc')
     erb :index
 end
 
 post '/new' do
-    Contribution.create({
-        name: params[:user_name],
-        body: params[:body],
-        good: 0
-    })
-    redirect '/'
+    if params[:user_name]!= "" and params[:body]!=""
+        Contribution.create({
+            name: params[:user_name],
+            body: params[:body],
+            good: 0
+        })
+    end
+    redirect '/wish'
 end
 
 post '/good/:id' do
@@ -30,12 +31,12 @@ post '/good/:id' do
     content.update({
         good: good + 1
     })
-    redirect '/'
+    redirect '/wish'
 end
     
 post '/delete/:id' do
     Contribution.find(params[:id]).destroy
-    redirect '/'
+    redirect '/wish'
 end
 
 get '/edit/:id' do
@@ -49,5 +50,10 @@ post '/renew/:id' do
         name: params[:user_name],
         body: params[:body]
     })
-    redirect '/'
+    redirect '/wish'
+end
+
+get '/wish' do
+    @contents = Contribution.all.order('id desc')
+    erb :wish
 end

@@ -1,7 +1,14 @@
 body {
     background-color: rgb(251, 251, 251);
+    padding: 15vh 5vw;
 }
 
 p {
     font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+
+input, img {
+    width: 50px;
+    height: 50px;
+    padding: 0.375rem 0.75rem;
 }
