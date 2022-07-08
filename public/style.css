@@ -4,7 +4,15 @@ body {
 
 p {
     font-family: 'M PLUS Rounded 1c', sans-serif;
+    margin-right:0px;
+    margin-left:0px;
 }
+
+.card-body{
+    height:400px;
+    margin:0 auto;
+}
+
 
 .center-box h3{
     font-size: 36px;
@@ -17,6 +25,13 @@ p {
 .center-box{
     text-align: center;
     color: white;
+}
+
+.box{
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .mini {
@@ -41,3 +56,26 @@ p {
     background-attachment: fixed;
 }
 
+
+ .wrapper{
+      width:100vw;
+    background-image: url(../img/bg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+ }
+ 
+ @media screen and (max-width: 600px) {
+    h3{
+        font-size:48px;
+    }
+    
+    h1{
+        font-size:180px;
+    }
+    
+    btn btn-success{
+        font-size:42px;
+    }
+}

@@ -15,13 +15,29 @@ get '/wish' do
 end
 
 post '/new' do
+  rnum = rand(5)
+  case rnum
+  when 0 then
+    color = "#b6ddf2"    
+  when 1 then
+    color = "#f4b6cd"
+  when 2 then
+    color = "#eaeab8"
+  when 3 then
+    color = "#aed8b3"
+  else
+    color = "#ad9cc9"
+  end
+  
     if params[:user_name]!= "" and params[:body]!=""
         Contribution.create({
             name: params[:user_name],
             body: params[:body],
+            color: color, 
             good: 0
         })
     end
+    
     redirect '/'
 end
 
