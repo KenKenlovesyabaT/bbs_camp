@@ -10,17 +10,18 @@ before do
 
 end
 
-get '/' do
-    @contents = Contribution.all.order('id desc')
+get '/wish' do
     erb :index
 end
 
 post '/new' do
-    Contribution.create({
-        name: params[:user_name],
-        body: params[:body],
-        good: 0
-    })
+    if params[:user_name]!= "" and params[:body]!=""
+        Contribution.create({
+            name: params[:user_name],
+            body: params[:body],
+            good: 0
+        })
+    end
     redirect '/'
 end
 
@@ -43,6 +44,11 @@ get '/edit/:id' do
     erb :edit
 end
 
+post '/edit/:id' do
+    @content = Contribution.find(params[:id])
+    redirect '/edit'
+end
+
 post '/renew/:id' do
     content = Contribution.find(params[:id])
     content.update({
@@ -50,4 +56,9 @@ post '/renew/:id' do
         body: params[:body]
     })
     redirect '/'
+end
+
+get '/' do
+    @contents = Contribution.all.order('id desc')
+    erb :wish
 end

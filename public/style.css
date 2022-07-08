@@ -5,3 +5,39 @@ body {
 p {
     font-family: 'M PLUS Rounded 1c', sans-serif;
 }
+
+.center-box h3{
+    font-size: 36px;
+}
+
+.center-box h1{
+    font-size: 120px;
+}
+
+.center-box{
+    text-align: center;
+    color: white;
+}
+
+.mini {
+    font-size: 16px;
+}
+
+.wish_body input, .wish_body img {
+    width: 15px;
+    height: 15px;
+}
+
+.wish_body p{
+    writing-mode: vertical-rl;
+}
+
+.wish_body{
+    width:100vw;
+    background-image: url(../img/bg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
