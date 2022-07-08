@@ -10,7 +10,7 @@ before do
 
 end
 
-get '/' do
+get '/wish' do
     erb :index
 end
 
@@ -22,7 +22,7 @@ post '/new' do
             good: 0
         })
     end
-    redirect '/wish'
+    redirect '/'
 end
 
 post '/good/:id' do
@@ -31,7 +31,7 @@ post '/good/:id' do
     content.update({
         good: good + 1
     })
-    redirect '/wish'
+    redirect '/'
 end
     
 post '/delete/:id' do
@@ -44,16 +44,21 @@ get '/edit/:id' do
     erb :edit
 end
 
+post '/edit/:id' do
+    @content = Contribution.find(params[:id])
+    redirect '/edit'
+end
+
 post '/renew/:id' do
     content = Contribution.find(params[:id])
     content.update({
         name: params[:user_name],
         body: params[:body]
     })
-    redirect '/wish'
+    redirect '/'
 end
 
-get '/wish' do
+get '/' do
     @contents = Contribution.all.order('id desc')
     erb :wish
 end
