@@ -10,7 +10,7 @@ p {
 
 .card-body{
     height:400px;
-    margin:0 auto;
+    margin:0;
 }
 
 
@@ -77,5 +77,9 @@ p {
     
     btn btn-success{
         font-size:42px;
+    }
+    
+    box p{
+        font-size:32px;
     }
 }
