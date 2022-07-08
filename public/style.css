@@ -2,16 +2,43 @@ body {
     background-color: rgb(251, 251, 251);
 }
 
+header{
+    height:100px;
+    display:flex;
+    align-items: center;
+}
+
+#logo{
+    height:140px;
+    width:140px;
+}
+
+
 p {
     font-family: 'M PLUS Rounded 1c', sans-serif;
     margin-right:0px;
     margin-left:0px;
+    overflow-wrap: break-word;
 }
 
 .card-body{
     height:400px;
     margin:0;
+    
+    
 }
+
+.card-body p{
+    margin-right:0px;
+    margin-left:0px;
+    margin-bottom:0px;
+    
+}
+
+.card-body p:first-child {
+    
+}
+
 
 
 .center-box h3{
@@ -33,19 +60,30 @@ p {
     flex-wrap: wrap;
     justify-content: space-around;
 }
+.boxbox{
+    height:300px;
+    text-align: center;
+}
 
 .mini {
     font-size: 16px;
 }
 
-.wish_body input, .wish_body img {
+.wish_body input {
     width: 15px;
     height: 15px;
 }
 
-.wish_body p{
-    writing-mode: vertical-rl;
+
+.card-body p{
+   display: flex;
+   writing-mode: vertical-rl;
+   align-items: center;
+   margin-bottom:10px;
+   text-align:center;
 }
+
+
 
 .wish_body{
     width:100vw;

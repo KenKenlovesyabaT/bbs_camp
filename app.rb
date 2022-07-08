@@ -3,14 +3,22 @@ Bundler.require
 require 'sinatra/reloader' if development?
 require 'open-uri'
 require 'sinatra/json'
+require 'rack-flash'
 require './models/contribution.rb'
 
+#configure do
+#  use Rack::Flash
+#end
+  
 before do
 
 
 end
 
 get '/wish' do
+    #if flash[:body]
+    #    @error = flash[:body]
+    #end
     erb :index
 end
 
@@ -30,12 +38,24 @@ post '/new' do
   end
   
     if params[:user_name]!= "" and params[:body]!=""
-        Contribution.create({
+        #Contribution.create({
+        #    name: params[:user_name],
+        #    body: params[:body],
+        #    color: color, 
+        #    good: 0
+        #})
+        cont = Contribution.new({
             name: params[:user_name],
             body: params[:body],
             color: color, 
             good: 0
         })
+        if cont.valid? then
+            cont.save
+        else
+            #flash[:body] = cont.errors[:body][0]
+            redirect '/wish'
+        end
     end
     
     redirect '/'

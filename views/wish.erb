@@ -14,6 +14,10 @@
   
 <body class="wish_body">
   
+  <header>
+    <img src="../img/logo.png" width="200px" > 
+  </header>
+  
   <div class="fixed-top" style="left:initial; margin: 3vh;">
     <a href="/wish" class="btn btn-success"><img src="../img/star-and-crescent-solid.svg">願う</a>
   </div>
@@ -23,14 +27,17 @@
       
       <div class="center-box">
         <h3>みんなの願い事</h3>
+        <h2></h2>
         <h1><%= @contents.size %><span class="mini">件</span></h1>
       </div>
       <div class="box">
       <% @contents.each do |content| %>
         <div class="card col-lg-1 mb-4 mx-3">
           <div class="card-body" style="background-color: <%= content.color %>">
+            <div class="boxbox">
             <p><%= content.name %></p>
             <p><%= content.body %></p>
+            </div>
             <div class="d-flex justify-content-center align-items-center mt-3">
               <span><%= content.good %></span>
               
@@ -42,9 +49,10 @@
                 <input type="image" src="../img/trash-can-solid.svg" alt="削除する">
               </form>
               
-              <a href="/edit/<%= content.id %>" class="btn"><img src="../img/pen-to-square-solid.svg"></a>
+              <a href="/edit/<%= content.id %>" class="btn"><img src="../img/pen-to-square-solid.svg" width="15px" height="15px" padding="0px"></a>
 
             </div>
+            
           </div>
         </div>
       <% end %>
